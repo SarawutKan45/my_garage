@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_garage/theme/theme.dart';
 
 class CustomTextField extends StatelessWidget {
   final String label;
@@ -36,10 +37,43 @@ class CustomTextField extends StatelessWidget {
         ],
       ),
       child: TextFormField(
-        // controller: controller,
-        // obscureText: isPassword,
-        // keyboardType: keyboardType,
-        // validator: validator,
+        controller: controller,
+        obscureText: isPassword,
+        keyboardType: keyboardType,
+        validator: validator,
+        style: TextStyle(color: AppTheme.primaryColor, fontSize: 16),
+        decoration: InputDecoration(
+          labelText: label,
+          labelStyle: TextStyle(color: AppTheme.textSecondary),
+          prefixIcon: Icon(perfixIcon, color: AppTheme.primaryColor),
+          suffixIcon:
+              suffixIcon ??
+              (isPassword
+                  ? IconButton(
+                    icon: Icon(Icons.vibration_outlined),
+                    onPressed: () {},
+                    color: AppTheme.primaryColor,
+                  )
+                  : null),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(16),
+            borderSide: BorderSide.none,
+          ),
+          filled: true,
+          fillColor: Colors.white,
+          contentPadding: EdgeInsets.symmetric(vertical: 16, horizontal: 20),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(16),
+            borderSide: BorderSide(color: AppTheme.primaryColor, width: 2),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(16),
+            borderSide: BorderSide(
+              color: AppTheme.textSecondary.withOpacity(0.1),
+              width: 2,
+            ),
+          ),
+        ),
       ),
     );
   }

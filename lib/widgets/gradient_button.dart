@@ -60,7 +60,7 @@ class GradientButton extends StatelessWidget {
                     ),
                   )
                   : Text(
-                    'Next',
+                    text,
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 16,
